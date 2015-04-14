@@ -1,4 +1,4 @@
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,8 +7,21 @@ import java.util.List;
  *
  */
 public class Menu {
-    public List<Meal> list(){
-        //todo
-        return Collections.emptyList();
+    private static List<Meal> list = new ArrayList<Meal>();
+
+    public static Boolean menuCheck(Meal meal) {
+        for(Meal m: list){
+            if(m.equals(meal))
+                return true;
+        }
+        return false;
+    }
+
+    public static List<Meal> getList() {
+        return list;
+    }
+
+    public static void setList(List<Meal> list) {
+        Menu.list = list;
     }
 }
