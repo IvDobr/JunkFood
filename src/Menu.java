@@ -7,9 +7,16 @@ import java.util.List;
  *
  */
 public class Menu {
-    private static List<Meal> list = new ArrayList<Meal>();
+    private List<Meal> list = new ArrayList<Meal>();
 
-    public static Boolean menuCheck(Meal meal) {
+    public Menu() {
+    }
+
+    public Menu(List<Meal> list) {
+        this.list = list;
+    }
+
+    public Boolean menuCheck(Meal meal) {
         for(Meal m: list){
             if(m.equals(meal))
                 return true;
@@ -17,11 +24,11 @@ public class Menu {
         return false;
     }
 
-    public static List<Meal> getList() {
+    public List<Meal> getList() {
         return list;
     }
 
-    public static void setList(List<Meal> list) {
-        Menu.list = list;
+    public void setList(List<Meal> list) {
+        this.list = list;
     }
 }

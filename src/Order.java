@@ -9,13 +9,19 @@ public class Order {
 
     private Map<Meal, Integer> order = new HashMap<Meal, Integer>();
 
+    private Menu menu;
+
+    public Order(Menu menu) {
+        this.menu = menu;
+    }
+
     public void addMeal(Meal meal){
-        if (!Menu.menuCheck(meal)) throw new IllegalArgumentException("Meal not on the menu");
+        if (!this.menu.menuCheck(meal)) throw new IllegalArgumentException("Meal not on the menu");
         order.put(meal, 1);
     }
 
     public void addMeal(Meal meal, int count) {
-        if (!Menu.menuCheck(meal)) throw new IllegalArgumentException("Meal not on the menu");
+        if (!this.menu.menuCheck(meal)) throw new IllegalArgumentException("Meal not on the menu");
         order.put(meal, count);
     }
 
@@ -29,5 +35,9 @@ public class Order {
             price += m.getPrice() * order.get(m);
         }
         return price;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
     }
 }

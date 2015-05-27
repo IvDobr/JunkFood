@@ -21,6 +21,7 @@ public class Meal {
     }
 
     public void setPrice(Integer price) {
+        if (0 > price) throw new IllegalArgumentException("Price must not be negative");
         this.price = price;
     }
 
@@ -37,6 +38,7 @@ public class Meal {
     }
 
     public void setWeight(Double weight) {
+        if (0 >= weight) throw new IllegalArgumentException("Weight must be more than zero");
         this.weight = weight;
     }
 }
